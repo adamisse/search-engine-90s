@@ -1,16 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
+
 #include "LLRBArch.h"
+#include "Page.h"
 
 typedef struct llrbtpage LLRBTPage;
-
-typedef struct page Page;
-
-Page * inicPage();
-
-void setName(Page*, char*);
-
-char * getName(Page* p);
 
 LLRBTPage * create_node_pages(char*, int, LLRBT*);
 
@@ -52,14 +46,4 @@ LLRBTPage* RBT_insert_existed_pages(LLRBTPage * h, LLRBTPage * page);
 
 char * get_name(LLRBTPage*);
 
-LLRBTPage * readGraph(char * line, char * delim,  LLRBTPage *arquivos, FILE * graph, int n);
-
 void printInOut(LLRBTPage * arquivos);
-
-LLRBTPage * define_pageRank(LLRBTPage* arquivos,int n);
-
-LLRBTPage * calculatePageRank(LLRBTPage * arquivos, int n);
-
-Page iterateIn(Page page, LLRBTPage * in, int index);
-
-Page* initPageRank(Page * pages, int n);

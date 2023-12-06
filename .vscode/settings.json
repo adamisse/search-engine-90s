@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "llrbpage.h": "c",
+        "llrbarch.h": "c",
+        "page.h": "c"
+    }
+}
