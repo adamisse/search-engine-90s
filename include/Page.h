@@ -17,5 +17,6 @@ Page *initPage(char *name, int outCount);
 void setName(Page *page, char *name);
 char *getName(Page *p);
 void freePage(Page *page);
+void setContent(Page* p, TST* tst);
 
 #endif

@@ -23,7 +23,7 @@ int main() {
     int tam = strlen("maria");
     String* word_to_be_searched = create_word("maria", tam);
     for(int i=0; i < numPages; i++){
-        printf("%s\n", pages[i].name);
+        printf("%s\n\n", pages[i].name);
         printf("%d\n\n", TST_search(pages[i].content, word_to_be_searched));
     }
     //readAndInsertContents(graph_path, pages, numPages);

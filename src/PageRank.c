@@ -8,7 +8,6 @@ void readGraphAndCalculatePageRank(char *filename, Page *pages, int numPages){
     readGraphFile(filename, pages, numPages);
     initializePageRanks(pages, numPages);
     calculatePageRank(pages, numPages);
-    printPageRanks(pages, numPages);
 }
 
 void readGraphFile(char *filename, Page *pages, int numPages) {

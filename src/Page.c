@@ -42,6 +42,10 @@ TST* getContent(Page *p){
     return p->content;
 }
 
+void setContent(Page *p, TST* tst){
+    p->content = tst;
+}
+
 void freePage(Page *page) {
     for (int i = 0; i < page->outCount; ++i) {
         free(page->outLinks[i].name);
