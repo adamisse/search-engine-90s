@@ -1,11 +1,12 @@
-#include "pagerank.h"
+#include "../include/PageRank.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include "../include/Sort.h"
 
 void readGraphAndCalculatePageRank(){
-    char *filename = "graph2.txt";
+    char *filename = "graph3.txt";
 
     int numPages = countFileLines(filename);
     Page pages[numPages];
@@ -14,6 +15,7 @@ void readGraphAndCalculatePageRank(){
 
     initializePageRanks(pages, numPages);
     calculatePageRank(pages, numPages);
+    sort(pages, 0, numPages - 1);
     printPageRanks(pages, numPages);
 }
 
