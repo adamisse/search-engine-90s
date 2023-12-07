@@ -19,7 +19,7 @@ int main() {
     TST* stopwords = read_stopwords(stopwords_path);
     Page pages[numPages];
     readGraphAndCalculatePageRank(graph_path, pages, numPages);
-    //read_pages(pages_path, pages, numPages, stopwords);
+    read_pages(pages_path, pages, numPages, stopwords);
     //readAndInsertContents(graph_path, pages, numPages);
 
     return 0;

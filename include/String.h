@@ -11,7 +11,7 @@ int len;
 } String;
 
 
-String* create_word(char** string, int len);
+String* create_word(char* string, int len);
 char* return_word(String* str);
 int return_length(String* str);
 

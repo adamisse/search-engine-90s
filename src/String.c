@@ -1,7 +1,6 @@
 #include "../include/String.h"
 
 String* create_word(char* string, int len){
-    printf("%s\n", string);
     String* str = malloc(sizeof(String));
     str->c = malloc(sizeof(char)*len+1);
     strcpy(str->c, string);

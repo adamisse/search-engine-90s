@@ -5,13 +5,11 @@ TST* read_stopwords(char* stopwords_path){
     TST* stopwords = initTST();
     char *stopword = malloc(50 * sizeof(char));
     int i = 0;
-    while (fscanf(sw, "%s", stopword) != EOF){
-        //caseInsensitive(stopword);
+    while (fscanf(sw, "%49s", stopword) != EOF){
+        caseInsensitive(stopword);
         int tam = strlen(stopword);
-        //printf("%s\n", stopword);
-        String* stopword = create_word(stopword, tam);
-        //printf("%s", return_word(stopword));
-        //stopwords = TST_insert(stopwords, stopword, i);
+        String* word = create_word(stopword, tam);
+        stopwords = TST_insert(stopwords, word, i);
         i++;
     }
     return stopwords;
@@ -25,8 +23,10 @@ void read_pages(char* pages_path, Page* pages, int numPages, TST* stopwords){
         char *word = malloc(50 * sizeof(char));
         int i = 0;
         while(fscanf(sw, "%s", word) != EOF){
+            caseInsensitive(word);
+            int tam = strlen(word);
+            String* word = create_word(word, tam);
             if(!TST_search(stopwords, word)){
-                caseInsensitive(word);
                 tst = TST_insert(tst, word, i);
                 i++;
             }
