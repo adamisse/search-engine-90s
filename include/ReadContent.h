@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 TST* read_stopwords(char* stopwords_path);
-void read_pages(char* pages_path, Page *pages, int numPages, TST* stopwords);
+Page* read_pages(char* pages_path, Page *pages, int numPages, TST* stopwords);
 char *concatStrings(char *str1, char *str2);
 char *caseInsensitive(char *str);
 

@@ -17,9 +17,14 @@ int main() {
 
     int numPages = countFileLines(graph_path);
     TST* stopwords = read_stopwords(stopwords_path);
-    Page pages[numPages];
+    Page* pages = malloc(sizeof(Page)*numPages);
     readGraphAndCalculatePageRank(graph_path, pages, numPages);
-    read_pages(pages_path, pages, numPages, stopwords);
+    pages = read_pages(pages_path, pages, numPages, stopwords);
+    int tam = strlen("maria");
+    String* word_to_be_searched = create_word("maria", tam);
+    for(int i=0; i < numPages; i++){
+        printf("%d", TST_search(pages[i].content, word_to_be_searched));
+    }
     //readAndInsertContents(graph_path, pages, numPages);
 
     return 0;

@@ -35,7 +35,7 @@ int TST_search(TST* t, String* key) {
 
 
 TST* initTST() {
-    TST *tst = malloc(sizeof(TST));
+    TST *tst = (TST*)malloc(sizeof(TST));
     if (tst == NULL) {
         exit(EXIT_FAILURE);
     }

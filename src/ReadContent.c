@@ -15,24 +15,26 @@ TST* read_stopwords(char* stopwords_path){
     return stopwords;
 }
 
-void read_pages(char* pages_path, Page* pages, int numPages, TST* stopwords){
+Page* read_pages(char* pages_path, Page* pages, int numPages, TST* stopwords){
     for(int i=0 ; i < numPages; i++){
         char* name = concatStrings(pages_path, pages[i].name);
-        FILE *sw = fopen(concatStrings(pages_path, pages[i].name), "r");
+        FILE *sw = fopen(name, "r");
         TST* tst = initTST();
         char *word = malloc(50 * sizeof(char));
         int i = 0;
         while(fscanf(sw, "%s", word) != EOF){
             caseInsensitive(word);
             int tam = strlen(word);
-            String* word = create_word(word, tam);
-            if(!TST_search(stopwords, word)){
-                tst = TST_insert(tst, word, i);
+            String* word_to_be_inserted = create_word(word, tam);
+            if(TST_search(stopwords, word_to_be_inserted) == -1){
+                tst = TST_insert(tst, word_to_be_inserted, i);
                 i++;
             }
         }
         pages[i].content = tst;
+        free(word);
     }
+    return pages;
 }
 
 
