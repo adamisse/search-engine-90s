@@ -15,7 +15,7 @@ TST* read_stopwords(char* stopwords_path){
     return stopwords;
 }
 
-Page* read_pages(char* pages_path, Page* pages, int numPages, TST* stopwords){
+void read_pages(char* pages_path, Page* pages, int numPages, TST* stopwords){
     for(int i=0 ; i < numPages; i++){
         char* name = concatStrings(pages_path, pages[i].name);
         FILE *sw = fopen(name, "r");
@@ -32,9 +32,9 @@ Page* read_pages(char* pages_path, Page* pages, int numPages, TST* stopwords){
             }
         }
         pages[i].content = tst;
+        fclose(sw);
         free(word);
     }
-    return pages;
 }
 
 
