@@ -1,6 +1,6 @@
 #include "Page.h"
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
 
 Page *initPage(char *name, int outCount) {
     Page *page = malloc(sizeof(Page));
@@ -34,8 +34,12 @@ void setName(Page *page, char *name) {
     page->name[sizeof(page->name) - 1] = '\0'; 
 }
 
-char *getName(Page *p) {
+char* getName(Page *p) {
     return p->name;
+}
+
+TST* getContent(Page *p){
+    return p->content;
 }
 
 void freePage(Page *page) {

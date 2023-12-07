@@ -1,11 +1,14 @@
 #ifndef PAGE_H
 #define PAGE_H
 
+#include "TST.h"
+
 typedef struct page Page;
 
 struct page {
     char name[20];
     int outCount;
+    TST *content;
     Page *outLinks;
     long double pageRank;
 };

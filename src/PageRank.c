@@ -4,14 +4,8 @@
 #include <string.h>
 #include <math.h>
 
-void readGraphAndCalculatePageRank(){
-    char *filename = "graph2.txt";
-
-    int numPages = countFileLines(filename);
-    Page pages[numPages];
-
+void readGraphAndCalculatePageRank(char *filename, Page *pages, int numPages){
     readGraphFile(filename, pages, numPages);
-
     initializePageRanks(pages, numPages);
     calculatePageRank(pages, numPages);
     printPageRanks(pages, numPages);
@@ -29,7 +23,6 @@ void readGraphFile(char *filename, Page *pages, int numPages) {
         fscanf(file, "%s %d", pages[i].name, &pages[i].outCount);
         //printf("%d\n",pages[i].outCount);
         pages[i].outLinks = malloc(pages[i].outCount * sizeof(Page));
-
         for (int j = 0; j < pages[i].outCount; ++j) {
             fscanf(file, "%s", pages[i].outLinks[j].name);
         }
