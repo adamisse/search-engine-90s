@@ -6,13 +6,13 @@
 #include <string.h>
 
 typedef struct {
-char *c;
-int len;
+  char *c;
+  int len;
 } String;
 
-
-String* create_word(char* string, int len);
-char* return_word(String* str);
-int return_length(String* str);
+String *create_word(char *string, int len);
+char *return_word(String *str);
+int return_length(String *str);
+void freeString(String *str);
 
 #endif
