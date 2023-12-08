@@ -37,7 +37,6 @@ int main(int argc, char **argv) {
   return 0;
 }
 
-// Função para realizar a busca e imprimir os resultados
 void searchAndPrintResults(Page *pages, int numPages) {
   size_t size = 0;
   char *word = NULL;
@@ -95,6 +94,5 @@ void searchAndPrintResults(Page *pages, int numPages) {
     }
     printf("\n");
   }
-
   free(word);
 }

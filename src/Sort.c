@@ -1,23 +1,17 @@
 #include "../include/Sort.h"
 
-int comparePages(const void *a, const void *b) {
-  Page *pageA = (Page *)a;
-  Page *pageB = (Page *)b;
+void sort(Page *p, int lo, int hi) {
+  int i, j;
+  for (i = lo + 1; i <= hi; i++) {
+    Page key = p[i];
+    j = i - 1;
 
-  if (pageA->pageRank > pageB->pageRank) {
-    return -1;
-  } else if (pageA->pageRank < pageB->pageRank) {
-    return 1;
-  } else {
-    return strcmp(pageA->name, pageB->name);
+    while (j >= lo && (key.pageRank > p[j].pageRank ||
+                       (key.pageRank == p[j].pageRank &&
+                        strcmp(key.name, p[j].name) > 0))) {
+      p[j + 1] = p[j];
+      j = j - 1;
+    }
+    p[j + 1] = key;
   }
-}
-
-void quickSort(Page *p, int lo, int hi) {
-  qsort(p + lo, hi - lo + 1, sizeof(Page), comparePages);
-}
-
-Page *sort(Page *p, int lo, int hi) {
-  quickSort(p, lo, hi);
-  return p;
 }
